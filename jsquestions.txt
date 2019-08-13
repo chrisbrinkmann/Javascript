@@ -1,0 +1,21 @@
+object destructuring syntax
+
+object key:value syntax uses a : for assignment in the initial object declaration
+but when adding new key:value pair we use the = assignment operator (key=value)
+why the difference?
+
+instanceof syntax - object instanceof contstructor
+why does it not use object.instanceof(constructor) ?
+
+why does isPrototypeOf() work on instance of object when no prototype is declared?
+function Bird(name) {
+  this.name = name;
+}
+let duck = new Bird("Donald");
+Bird.prototype.isPrototypeOf(duck);
+// returns true
+
+
+synatax for instantiating new objects from a constructor vs. prototype:
+let animal = new Animal(); // using new + constructor
+let animal = Object.create(Animal.prototype); // using Object.create(obj) where obj is the prototype
