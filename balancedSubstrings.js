@@ -30,36 +30,30 @@ s[i] = 'L' or 'R'
  * @param {string} s
  * @return {number}
  */
+/**
+ * @param {string} s
+ * @return {number}
+ */
 var balancedStringSplit = function(s) {
    // counters
-    let Rs = 0
-    let Ls = 0
+    let balanced = 0
     let balancedCount = 0
     
     // loop thru the balanced string
     for(let i = 0; i < s.length; i++){
-        // add each letter ecountered to appropriate counter
+        // use each found letter to inc/dec the balanced counter
         if (s[i] === 'R') {
-            Rs++
+            balanced++
         }
         
         if (s[i] === 'L') {
-            Ls++
+            balanced--
         }
         
-        // once we have the same number we have found a balanced substring
-        if(Rs > 0 && Rs === Ls){
-            // if the total of Rs and Ls is the length of the original string
-            if(Rs + Ls === s.length) {
-                // then we just return 1 since the original string is the only balanced substring
-                return 1
-            }
-            // otherwise add 1 to the counter of found balanced substrings
+        // when balanced is 0 we have found a balanced substring
+        if(balanced === 0){
+            // increment the counter and keep going
             balancedCount++
-            
-            // and reset the Rs and Ls counters to 0 to begin looking for the next balanced substring
-            Rs = 0
-            Ls = 0
         }
     }
     
